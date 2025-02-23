@@ -12,4 +12,5 @@ export class C1Component {
   nomes:string[] = ["Felipe", "Mary", "Chimia", "Pelica"];
   linguagem:string = "HTMl";
   nome:string = "";
+  cidade:string ='';
 }
