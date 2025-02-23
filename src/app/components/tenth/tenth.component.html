@@ -1,3 +1,6 @@
 @for (i of nomes; track $index) {
   <p>{{$index}} - {{i}}</p>
+  @if ($index==nomes.length-1){
+    <p>{{$count}}</p>
+  }
 }

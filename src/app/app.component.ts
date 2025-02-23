@@ -10,10 +10,11 @@ import { SeventhComponent } from "./components/seventh/seventh.component";
 import { EigthComponent } from "./components/eigth/eigth.component";
 import { NinethComponent } from "./components/nineth/nineth.component";
 import { TenthComponent } from "./components/tenth/tenth.component";
+import { C1Component } from "./components/1-testes/c1/c1.component";
 
 @Component({
   selector: 'app-root',
-  imports: [FirstComponent, SecondComponent, ThirdComponent, FourthComponent, FifthComponent, SixthComponent, SeventhComponent, EigthComponent, NinethComponent, TenthComponent],
+  imports: [C1Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
