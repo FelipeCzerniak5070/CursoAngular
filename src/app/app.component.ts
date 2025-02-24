@@ -11,10 +11,12 @@ import { EigthComponent } from "./components/eigth/eigth.component";
 import { NinethComponent } from "./components/nineth/nineth.component";
 import { TenthComponent } from "./components/tenth/tenth.component";
 import { C1Component } from "./components/1-testes/c1/c1.component";
+import { C2Component } from "./components/1-testes/c2/c2.component";
+import { CadastroComponent } from "./cadastro/cadastro.component";
 
 @Component({
   selector: 'app-root',
-  imports: [C1Component],
+  imports: [C1Component, C2Component, CadastroComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
