@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,9 +10,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class CadastroComponent {
   
   form = new FormGroup({
-   nome: new FormControl(''),
-   idade: new FormControl(null),
-   cidade: new FormControl('')
+   nome: new FormControl('',[Validators.required,Validators.minLength(10),Validators.max(255)]),
+   idade: new FormControl(null,[Validators.required,Validators.min(0),Validators.max(120)]),
+   cidade: new FormControl('',[Validators.required,Validators.minLength(10),Validators.max(255)])
   });
 }
 
