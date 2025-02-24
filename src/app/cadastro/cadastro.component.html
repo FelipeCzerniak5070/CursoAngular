@@ -1,7 +1,11 @@
-<form>
-  <input type="text" name="" placeholder="Nome" class="form-control">
-  <input type="number" name="" placeholder="Idade" class="form-control">
-  <input type="number" name="" placeholder="Cidade" class="form-control">
+<p>{{form.value.nome}}</p>
+<p>{{form.value.idade}}</p>
+<p>{{form.value.cidade}}</p>
+
+<form [formGroup]="form">
+  <input type="text" formControlName="nome" placeholder="Nome" class="form-control">
+  <input type="number" formControlName="idade" placeholder="Idade" class="form-control">
+  <input type="text" formControlName="cidade" placeholder="Cidade" class="form-control">
 
   <input type="button" value="Cadastrar" class="btn btn-primary">
   <input type="button" value="Alterar" class="btn btn-primary">
