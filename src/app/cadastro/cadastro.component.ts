@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Pessoa } from "../Model/Pessoa";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cadastro',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.css'
 })
@@ -23,12 +24,25 @@ export class CadastroComponent {
   // Função de Cadastro
 
   cadastrarCliente(){
-    this.pessoas.push(this.form.value as Pessoa);
 
-    this.form.reset();
+    if(this.form.valid){
 
-    console.table(this.pessoas);
+      this.pessoas.push(this.form.value as Pessoa);
+      
+      this.form.reset();
+      
+      console.table(this.pessoas);
+    } else {
+      console.log("Formulário inválido");
+    }
+      
+  }
 
+  listarPessoas(){
+    
+    this.pessoas.forEach(element => {
+      
+    });
   }
 
 }
