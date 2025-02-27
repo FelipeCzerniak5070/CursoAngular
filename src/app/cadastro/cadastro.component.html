@@ -10,10 +10,10 @@
     <p class="alert alert-warning">Nome: Campo obrigatório</p>
   }
   @if(form.get('nome').hasError('minlength') && form.get('nome').touched) {
-    <p class="alert alert-warning">Nome: Mínimo 10 caracteres</p>
+    <p class="alert alert-warning">Nome: Mínimo 3 caracteres</p>
   }
   @if(form.get('nome').hasError('maxlength') && form.get('nome').touched) {
-    <p class="alert alert-warning">Nome: Máximo 10 caracteres</p>
+    <p class="alert alert-warning">Nome: Máximo 255 caracteres</p>
   }
   <input type="text" formControlName="nome" placeholder="Nome" class="form-control">
 
@@ -35,7 +35,7 @@
     <p class="alert alert-warning">Cidade: Mínimo 3 caracteres</p>
   }
   @if(form.get('cidade').hasError('maxlength') && form.get('cidade').touched) {
-    <p class="alert alert-warning">Cidade: Máximo 10 caracteres</p>
+    <p class="alert alert-warning">Cidade: Máximo 255 caracteres</p>
   }
   <input type="text" formControlName="cidade" placeholder="Cidade" class="form-control">
 
@@ -49,10 +49,22 @@
     <input type="button" value="Cancelar" class="btn btn-primary">
   }
 
+  <!--->>
   @for (i of pessoas;track i.nome){
-    <p>{{i}}</p>
+    <ul>
+      <li>
+        <p>{{i.nome}}</p>
+      </li>
+      <li>
+        <p>{{i.idade}}</p>
+      </li>
+      <li>
+        <p>{{i.cidade}}</p>
+      </li>
+    </ul>
   }
-
+  <--> 
+  
 </form>
 
 <table class="table">
@@ -71,7 +83,7 @@
       <td>{{i.nome}}</td>
       <td>{{i.idade}}</td>
       <td>{{i.cidade}}</td>
-      <td><button class="btn btn-primary">Selecionar</button></td>
+      <td><button class="btn btn-primary" (click)="selecionarCliente(indice)">Selecionar</button></td>
     </tr>
   </tbody>
 </table>

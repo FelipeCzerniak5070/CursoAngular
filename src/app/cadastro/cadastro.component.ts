@@ -12,14 +12,20 @@ import { CommonModule } from '@angular/common';
 export class CadastroComponent {
   
   form = new FormGroup({
-   nome: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(255)]),
+   nome: new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(255)]),
    idade: new FormControl(null,[Validators.required,Validators.min(12),Validators.max(120)]),
    cidade: new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(255)])
   });
 
   btnCadastrar:boolean = true;
 
-  pessoas:Pessoa[] = []; 
+  pessoas:Pessoa[] = [
+    (new Pessoa("Felipe",18,"Caçador")),
+    (new Pessoa("Mary",16,"Caçador")),
+    (new Pessoa("Chimia",10,"Caçador"))
+  ];
+  
+  indice:number = -1;
 
   // Função de Cadastro
 
@@ -37,6 +43,21 @@ export class CadastroComponent {
     }
       
   }
+
+
+  selecionarCliente(indice:number){
+    this.indice=indice;
+
+    this.form.setValue({
+      nome: this.pessoas[indice].nome,
+      idade: this.pessoas[indice].idade,
+      cidade: this.pessoas[indice].nome
+    });
+
+    this.btnCadastrar=false;
+
+  }
+
 
   listarPessoas(){
     
