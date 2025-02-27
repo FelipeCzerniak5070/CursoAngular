@@ -3,9 +3,40 @@
 <p>{{form.value.cidade}}</p>
 
 <form [formGroup]="form">
+
+  @if(form.get('nome').hasError('required') && form.get('nome').touched) {
+    <p class="alert alert-warning">Nome: Campo obrigatório</p>
+  }
+  @if(form.get('nome').hasError('minlength') && form.get('nome').touched) {
+    <p class="alert alert-warning">Nome: Mínimo 10 caracteres</p>
+  }
+  @if(form.get('nome').hasError('maxlength') && form.get('nome').touched) {
+    <p class="alert alert-warning">Nome: Máximo 10 caracteres</p>
+  }
   <input type="text" formControlName="nome" placeholder="Nome" class="form-control">
+
+  @if(form.get('idade').hasError('max') && form.get('idade').touched) {
+    <p class="alert alert-warning">Idade: Máximo 120 anos</p>
+  }
+  @if(form.get('idade').hasError('min') && form.get('idade').touched) {
+    <p class="alert alert-warning">Idade: Mínimo 12 anos</p>
+  }
+  @if(form.get('idade').hasError('required') && form.get('idade').touched) {
+    <p class="alert alert-warning">Idade: Campo Obrigatório</p>
+  }
   <input type="number" formControlName="idade" placeholder="Idade" class="form-control">
+
+  @if(form.get('cidade').hasError('required') && form.get('cidade').touched) {
+    <p class="alert alert-warning">Cidade: Campo obrigatório</p>
+  }
+  @if(form.get('cidade').hasError('minlength') && form.get('cidade').touched) {
+    <p class="alert alert-warning">Cidade: Mínimo 10 caracteres</p>
+  }
+  @if(form.get('cidade').hasError('maxlength') && form.get('cidade').touched) {
+    <p class="alert alert-warning">Cidade: Máximo 10 caracteres</p>
+  }
   <input type="text" formControlName="cidade" placeholder="Cidade" class="form-control">
+
 
   <input type="button" value="Cadastrar" class="btn btn-primary">
   <input type="button" value="Alterar" class="btn btn-primary">
@@ -24,3 +55,4 @@
     </tr>
   </thead>
 </table>
+
