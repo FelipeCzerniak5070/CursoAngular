@@ -32,7 +32,7 @@
     <p class="alert alert-warning">Cidade: Campo obrigatório</p>
   }
   @if(form.get('cidade').hasError('minlength') && form.get('cidade').touched) {
-    <p class="alert alert-warning">Cidade: Mínimo 10 caracteres</p>
+    <p class="alert alert-warning">Cidade: Mínimo 3 caracteres</p>
   }
   @if(form.get('cidade').hasError('maxlength') && form.get('cidade').touched) {
     <p class="alert alert-warning">Cidade: Máximo 10 caracteres</p>
@@ -41,13 +41,18 @@
 
 
   @if(btnCadastrar){
-    <input type="button" value="Cadastrar" class="btn btn-primary" id="first-button" [disabled]="!form.valid">
+    <input type="button" value="Cadastrar" class="btn btn-primary" id="first-button" (click)="cadastrarCliente()" [disabled]="!form.valid">
   } @else {
 
     <input type="button" value="Alterar" class="btn btn-primary">
     <input type="button" value="Remover" class="btn btn-primary">
     <input type="button" value="Cancelar" class="btn btn-primary">
   }
+
+  @for (i of pessoas;track i.nome){
+    <p>{{i}}</p>
+  }
+
 </form>
 
 <table class="table">
