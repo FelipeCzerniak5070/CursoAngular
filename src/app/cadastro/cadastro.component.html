@@ -1,6 +1,8 @@
+<!--> 
 <p>{{form.value.nome}}</p>
 <p>{{form.value.idade}}</p>
 <p>{{form.value.cidade}}</p>
+</!-->
 
 <form [formGroup]="form">
 
@@ -38,10 +40,14 @@
   <input type="text" formControlName="cidade" placeholder="Cidade" class="form-control">
 
 
-  <input type="button" value="Cadastrar" class="btn btn-primary">
-  <input type="button" value="Alterar" class="btn btn-primary">
-  <input type="button" value="Remover" class="btn btn-primary">
-  <input type="button" value="Cancelar" class="btn btn-primary">
+  @if(btnCadastrar){
+    <input type="button" value="Cadastrar" class="btn btn-primary" id="first-button" [disabled]="!form.valid">
+  } @else {
+
+    <input type="button" value="Alterar" class="btn btn-primary">
+    <input type="button" value="Remover" class="btn btn-primary">
+    <input type="button" value="Cancelar" class="btn btn-primary">
+  }
 </form>
 
 <table class="table">

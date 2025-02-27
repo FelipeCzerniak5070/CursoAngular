@@ -14,6 +14,10 @@ export class CadastroComponent {
    idade: new FormControl(null,[Validators.required,Validators.min(12),Validators.max(120)]),
    cidade: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(255)])
   });
+
+  btnCadastrar:boolean = true;
+  
+
 }
 
 
