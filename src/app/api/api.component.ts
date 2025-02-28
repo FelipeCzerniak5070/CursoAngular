@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { Produto } from '../Model/Produto';
 import { ProdutoService } from '../service/produto.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -33,14 +33,16 @@ export class ApiComponent {
 
   // Inicialização do Component
   ngOnInit(){
-    this.selecionarProduto()
+    this.selecionar()
   }
-
+  ngOnChanges(changes: SimpleChanges): void {
+    this.selecionar()
+    
+  }
   // Método de Seleção de Produtos
 
-  selecionarProduto(){
+  selecionar(){
     this.service.selecionar().subscribe(retorno => this.produtos = retorno);
-
   }
 
   cadastrarProduto(){
@@ -51,5 +53,17 @@ export class ApiComponent {
 
     });
   }
+
+  selecionarProduto(i:number){
+
+    this.form.setValue({
+    id:this.produtos[i].id,
+    nome:this.produtos[i].nome,
+    valor:this.produtos[i].valor
+    })
+
+    this.btnCadastrarVisivel=false;
+
+  };
 
 }

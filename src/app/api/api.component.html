@@ -22,13 +22,13 @@
         </tr>
     </thead>
 
-    <tbody>
+    <tbody class="tbody">
         <tr *ngFor="let i of produtos; let index = index ">
             <td>{{index+1}}</td>
             <td>{{i.id}}</td>
             <td>{{i.nome}}</td>
             <td>{{i.valor}}</td>
-            <td><button class="btn btn-primary" (click)="selecionarProduto()">Selecionar</button>
+            <td><button class="btn btn-primary" (click)="selecionarProduto(index)">Selecionar</button>
             </td>
         </tr>
     </tbody>
