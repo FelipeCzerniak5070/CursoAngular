@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Produto } from '../Model/Produto';
 import { ProdutoService } from '../service/produto.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Pessoa } from '../Model/Pessoa';
 
 @Component({
   selector: 'app-api',
@@ -22,6 +23,8 @@ export class ApiComponent {
     valor: new FormControl(null)
   });
 
+  indice:number=-1;
+
   //Botões Visíveis
   btnCadastrarVisivel:boolean=true;
 
@@ -38,6 +41,15 @@ export class ApiComponent {
   selecionarProduto(){
     this.service.selecionar().subscribe(retorno => this.produtos = retorno);
 
+  }
+
+  cadastrarProduto(){
+    this.service.cadastrar(this.form.value as Produto).subscribe(retorno => {
+
+      this.produtos.push(retorno);
+      this.form.reset(); 
+
+    });
   }
 
 }

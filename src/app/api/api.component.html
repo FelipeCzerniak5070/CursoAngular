@@ -1,13 +1,11 @@
 <!-- FORMULÁRIO -->
 
-{{form.value | json}}
-
 <form [formGroup]="form">
     <input type="number" class="form-control" formControlName="id" readonly placeholder="Id">
     <input type="text"   class="form-control" formControlName="nome" placeholder="Nome">
     <input type="number" class="form-control" formControlName="valor" placeholder="Valor">
 
-    <input type="button" class="btn btn-primary" value="Cadastrar" *ngIf="btnCadastrarVisivel" > 
+    <input type="button" class="btn btn-primary" value="Cadastrar" *ngIf="btnCadastrarVisivel" (click)="cadastrarProduto()"> 
     <input type="button" class="btn btn-primary" value="Alterar" *ngIf="!btnCadastrarVisivel"> 
     <input type="button" class="btn btn-primary" value="Remover" *ngIf="!btnCadastrarVisivel"> 
 </form>
