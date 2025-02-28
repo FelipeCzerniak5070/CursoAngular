@@ -89,7 +89,20 @@ export class ApiComponent {
   }
 
   removerProduto(){
-    
+    this.service.remover(this.form.value.id).subscribe(retorno=>{
+
+      let indiceRemovido = this.produtos.findIndex(o => {
+        return this.form.value.id === o.id
+      });
+
+      this.produtos.splice(indiceRemovido,1)
+
+      this.form.reset();
+
+      this.btnCadastrarVisivel = true;
+
+    });
+
   }
 
 }
