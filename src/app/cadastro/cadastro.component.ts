@@ -76,6 +76,11 @@ export class CadastroComponent {
 
   }
 
+  cancelarAcao(){
+    this.form.reset();
+    this.btnCadastrar=true;
+  }
+
 
   listarPessoas(){
     
