@@ -13,10 +13,11 @@ import { TenthComponent } from "./components/tenth/tenth.component";
 import { C1Component } from "./c1/c1.component";
 import { C2Component } from "./components/1-testes/c2/c2.component";
 import { CadastroComponent } from "./cadastro/cadastro.component";
+import { Pipe2Component } from "./pipe2/pipe2.component";
 
 @Component({
   selector: 'app-root',
-  imports: [C1Component],
+  imports: [C1Component, Pipe2Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
