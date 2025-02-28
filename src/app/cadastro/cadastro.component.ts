@@ -67,7 +67,14 @@ export class CadastroComponent {
 
   }
 
-  
+  removerCliente(){
+    this.pessoas.splice(this.indice, 1);
+
+    this.form.reset();
+
+    this.btnCadastrar=true;
+
+  }
 
 
   listarPessoas(){
