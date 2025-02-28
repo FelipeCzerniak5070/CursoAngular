@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ApiComponent } from "./api/api.component";
+import { MaterialComponent } from "./components/material/material.component";
 @Component({
   selector: 'app-root',
-  imports: [ApiComponent],
+  imports: [ MaterialComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
