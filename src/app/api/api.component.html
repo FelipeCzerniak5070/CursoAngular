@@ -1,15 +1,15 @@
 <!-- FORMULÁRIO -->
 
-{{produtos | json}}
+{{form.value | json}}
 
-<form>
-    <input type="number" class="form-control" readonly >
-    <input type="text"   class="form-control" placeholder="Nome">
-    <input type="number" class="form-control" placeholder="Valor">
+<form [formGroup]="form">
+    <input type="number" class="form-control" formControlName="id" readonly placeholder="Id">
+    <input type="text"   class="form-control" formControlName="nome" placeholder="Nome">
+    <input type="number" class="form-control" formControlName="valor" placeholder="Valor">
 
-    <input type="button" class="btn btn-primary" value="Cadastrar"> 
-    <input type="button" class="btn btn-primary" value="Alterar"> 
-    <input type="button" class="btn btn-primary" value="Remover"> 
+    <input type="button" class="btn btn-primary" value="Cadastrar" *ngIf="btnCadastrarVisivel" > 
+    <input type="button" class="btn btn-primary" value="Alterar" *ngIf="!btnCadastrarVisivel"> 
+    <input type="button" class="btn btn-primary" value="Remover" *ngIf="!btnCadastrarVisivel"> 
 </form>
 
 <!-- TABELA -->
