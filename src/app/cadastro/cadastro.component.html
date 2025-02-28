@@ -3,6 +3,11 @@
 <p>{{form.value.idade}}</p>
 <p>{{form.value.cidade}}</p>
 </!-->
+<nav class="navbar sticky-top bg-body-tertiary ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+  </div>
+</nav>
 
 <form [formGroup]="form">
 
@@ -44,7 +49,7 @@
     <input type="button" value="Cadastrar" class="btn btn-primary" id="first-button" (click)="cadastrarCliente()" [disabled]="!form.valid">
   } @else {
 
-    <input type="button" value="Alterar" class="btn btn-primary">
+    <input type="button" value="Alterar" class="btn btn-primary" (click)="alterarCliente()">
     <input type="button" value="Remover" class="btn btn-primary">
     <input type="button" value="Cancelar" class="btn btn-primary">
   }

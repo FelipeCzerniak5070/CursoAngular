@@ -51,12 +51,23 @@ export class CadastroComponent {
     this.form.setValue({
       nome: this.pessoas[indice].nome,
       idade: this.pessoas[indice].idade,
-      cidade: this.pessoas[indice].nome
+      cidade: this.pessoas[indice].cidade
     });
 
     this.btnCadastrar=false;
 
   }
+
+  alterarCliente(){
+    this.pessoas[this.indice] = this.form.value as Pessoa;
+
+    this.form.reset();
+
+    this.btnCadastrar=false;
+
+  }
+
+  
 
 
   listarPessoas(){
