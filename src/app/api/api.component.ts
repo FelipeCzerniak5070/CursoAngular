@@ -35,7 +35,7 @@ export class ApiComponent {
   ngOnInit(){
     this.selecionar()
   }
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges) {
     this.selecionar()
     
   }
@@ -65,5 +65,31 @@ export class ApiComponent {
     this.btnCadastrarVisivel=false;
 
   };
+
+  // Alterar produtos
+
+  alterarProduto(){
+    this.service.alterar(this.form.value as Produto).subscribe(retorno => {
+      
+      //Obter Índice
+      let indiceAlterado = this.produtos.findIndex(o => {
+        return this.form.value.id ===o.id
+      });
+
+      //Alterar Objeto
+
+      this.produtos[indiceAlterado]=retorno;
+
+      this.form.reset();
+
+      this.btnCadastrarVisivel=true;
+
+    }
+    );
+  }
+
+  removerProduto(){
+    
+  }
 
 }
